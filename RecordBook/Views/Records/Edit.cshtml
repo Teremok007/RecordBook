@@ -1,0 +1,54 @@
+﻿@model RecordBook.Models.Record
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+<form method="post">
+    <div class="form-horizontal">
+        <h4>Record</h4>
+        <hr />
+        @Html.ValidationSummary()
+        <input type="hidden" value="@Model.Id" name="Id" />
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" value="@Model.Message" name="message" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            Author:
+            <div class="col-md-10">
+                @Model.Author
+            </div>
+        </div>
+
+        <div class="form-group">
+            Date:
+            <div class="col-md-10">
+                @Model.Date
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="@Model.Author" name="author" />
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
